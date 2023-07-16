@@ -1,9 +1,11 @@
 {% extends "common/base.html" %}
 {% load static %}
 {% load bootstrap5 %}
+
 {% bootstrap_css %}
 {% bootstrap_javascript %}
 {% block main_content %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -342,7 +344,7 @@ Header START -->
 					</li>
 
 					<!-- Nav item 5 link-->
-					<li class="nav-item"> <a class="nav-link" href="../dashboard.html">Dashboard</a></li>
+					<li class="nav-item"> <a class="nav-link" href="../common/dashboard.html">Dashboard</a></li>
 				</ul>
 			</div>
 			<!-- Main navbar END -->
@@ -436,23 +438,11 @@ Inner intro START -->
         <div class="bg-primary bg-opacity-10 rounded p-4 p-sm-5">
 					<h2>Create your free account </h2>
 					<!-- Form START -->
-					<form class="mt-4">
-						<!-- Email -->
-						<div class="mb-3">
-							<label class="form-label" for="exampleInputEmail1">Email address</label>
-							<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail">
-							<small id="emailHelp" class="form-text">We'll never share your email with anyone else.</small>
-						</div>
-						<!-- Password -->
-						<div class="mb-3">
-							<label class="form-label" for="exampleInputPassword1">Password</label>
-							<input type="password" class="form-control" id="exampleInputPassword1" placeholder="*********">
-						</div>
-						<!-- Password -->
-						<div class="mb-3">
-							<label class="form-label" for="exampleInputPassword2">Confirm Password</label>
-							<input type="password" class="form-control" id="exampleInputPassword2" placeholder="*********">
-						</div>
+					<form class="mt-4" method="POST" , action="{% url 'sign up' %}">
+						{% csrf_token %}
+                        {{ form.as_p }}
+
+
 						<!-- Checkbox -->
 						<div class="mb-3 form-check">
 							<input type="checkbox" class="form-check-input" id="exampleCheck1">

@@ -13,7 +13,7 @@ class SignUpView(CreateView):
     template_name = 'auth/signup.html'
     model = BlogzineCenterUser
     form_class = SignUpForm
-    success_url = reverse_lazy('verify email initial')
+    success_url = reverse_lazy('require sign in')
 
 
 class SignInView(LoginView):
@@ -34,5 +34,5 @@ class SignOutView(LogoutView):
     next_page = 'home'
 
 
-# class RequireSignInView(TemplateView):
-#     template_name = 'auth/require_sign_in.html'
+class RequireSignInView(TemplateView):
+     template_name = 'common/dashboard.html'

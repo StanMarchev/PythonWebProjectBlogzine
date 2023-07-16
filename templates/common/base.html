@@ -104,7 +104,7 @@ Header START -->
 				<!-- Top bar left -->
 				<ul class="nav">
 					<li class="nav-item">
-						<a class="nav-link ps-0" href="about-us.html">About</a>
+						<a class="nav-link ps-0" href="{% url 'about'%}">About</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#">Forum</a>
@@ -113,7 +113,7 @@ Header START -->
 						<a class="nav-link" href="https://themes.getbootstrap.com/store/webestica/">Buy now!</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="../auth/signin.html">Login / Join</a>
+						<a class="nav-link" href="{% url 'sign-in' %}">Login / Join</a>
 					</li>
 				</ul>
 				<!-- Top bar right -->

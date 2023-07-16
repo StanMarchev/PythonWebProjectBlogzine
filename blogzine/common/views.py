@@ -7,3 +7,5 @@ class HomeView(TemplateView):
 
 class AboutView(TemplateView):
     template_name = 'common/about-us.html'
+class DashboardView(TemplateView):
+     template_name = 'common/dashboard.html'
