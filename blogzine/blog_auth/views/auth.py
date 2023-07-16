@@ -13,7 +13,7 @@ class SignUpView(CreateView):
     template_name = 'auth/signup.html'
     model = BlogzineCenterUser
     form_class = SignUpForm
-    success_url = reverse_lazy('sign-in')
+    success_url = reverse_lazy('require sign in')
 
 
 class SignInView(LoginView):

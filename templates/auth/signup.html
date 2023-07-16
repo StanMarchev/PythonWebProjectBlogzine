@@ -84,11 +84,11 @@
 	<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
 
 	<!-- Plugins CSS -->
-	<link rel="stylesheet" type="text/css" href="../assets/vendor/font-awesome/css/all.min.css">
-	<link rel="stylesheet" type="text/css" href="../assets/vendor/bootstrap-icons/bootstrap-icons.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/font-awesome/css/all.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}">
 
 	<!-- Theme CSS -->
-	<link id="style-switch" rel="stylesheet" type="text/css" href="../assets/css/style.css">
+	<link id="style-switch" rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 
 </head>
 
@@ -101,9 +101,9 @@ Header START -->
 	<nav class="navbar navbar-expand-lg">
 		<div class="container">
 			<!-- Logo START -->
-			<a class="navbar-brand" href="../common/index.html">
-				<img class="navbar-brand-item light-mode-item" src="../assets/images/logo.svg" alt="logo">
-				<img class="navbar-brand-item dark-mode-item" src="../assets/images/logo-light.svg" alt="logo">
+			<a class="navbar-brand" href="{% url 'home' %}">
+				<img class="navbar-brand-item light-mode-item" src="{% static 'images/logo.svg' %}" alt="logo">
+				<img class="navbar-brand-item dark-mode-item" src="{% static 'images/logo-light.svg' %}" alt="logo">
 			</a>
 			<!-- Logo END -->
 
@@ -261,7 +261,7 @@ Header START -->
 									<div class="col-sm-6 col-lg-3">
 										<div class="card bg-transparent">
 											<!-- Card img -->
-											<img class="card-img rounded" src="../assets/images/blog/16by9/small/01.jpg" alt="Card image">
+											<img class="card-img rounded" src="{% static 'images/blog/16by9/small/01.jpg' %}" alt="Card image">
 											<div class="card-body px-0 pt-3">
 												<h6 class="card-title mb-0"><a href="../post-single-2.html" class="btn-link text-reset fw-bold">7 common mistakes everyone makes while traveling</a></h6>
 												<!-- Card info -->
@@ -279,7 +279,7 @@ Header START -->
 									<div class="col-sm-6 col-lg-3">
 										<div class="card bg-transparent">
 											<!-- Card img -->
-											<img class="card-img rounded" src="../assets/images/blog/16by9/small/02.jpg" alt="Card image">
+											<img class="card-img rounded" src="{% static 'images/blog/16by9/small/02.jpg' %}" alt="Card image">
 											<div class="card-body px-0 pt-3">
 												<h6 class="card-title mb-0"><a href="../post-single-2.html" class="btn-link text-reset fw-bold">12 worst types of business accounts you follow on Twitter</a></h6>
 												<!-- Card info -->
@@ -297,7 +297,7 @@ Header START -->
 									<div class="col-sm-6 col-lg-3">
 										<div class="card bg-transparent">
 											<!-- Card img -->
-											<img class="card-img rounded" src="../assets/images/blog/16by9/small/03.jpg" alt="Card image">
+											<img class="card-img rounded" src="{% static 'images/blog/16by9/small/03.jpg' %}" alt="Card image">
 											<div class="card-body px-0 pt-3">
 												<h6 class="card-title mb-0"><a href="../post-single-2.html" class="btn-link text-reset fw-bold">Skills that you can learn from business</a></h6>
 												<!-- Card info -->
@@ -438,7 +438,7 @@ Inner intro START -->
         <div class="bg-primary bg-opacity-10 rounded p-4 p-sm-5">
 					<h2>Create your free account </h2>
 					<!-- Form START -->
-					<form class="mt-4" method="POST" , action="{% url 'sign up' %}">
+					<form class="mt-4" method="POST" , action="{% url 'sign-up' %}">
 						{% csrf_token %}
                         {{ form.as_p }}
 
@@ -454,7 +454,7 @@ Inner intro START -->
 								<button type="submit" class="btn btn-success">Sign me up</button>
 							</div>
 							<div class="col-sm-8 text-sm-end">
-								<span>Have an account? <a href="../signin.html"><u>Sign in</u></a></span>
+								<span>Have an account? <a href="{% url 'sign-in' %}"><u>Sign in</u></a></span>
 							</div>
 						</div>
 					</form>
