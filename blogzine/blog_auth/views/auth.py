@@ -13,7 +13,7 @@ class SignUpView(CreateView):
     template_name = 'auth/signup.html'
     model = BlogzineCenterUser
     form_class = SignUpForm
-    success_url = reverse_lazy('require sign in')
+    success_url = reverse_lazy('home')
 
 
 class SignInView(LoginView):
@@ -24,9 +24,9 @@ class SignInView(LoginView):
         user = form.get_user()
         if user.is_verified:
             login(self.request, user)
-            return redirect('profile main', user.username)
+            return redirect('dashboard', user.username)
         else:
-            return redirect('verify email additional', user.id)
+            return redirect('sign-up', user.id)
 
 
 class SignOutView(LogoutView):

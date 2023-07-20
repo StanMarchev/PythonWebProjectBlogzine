@@ -112,6 +112,7 @@ Header START -->
 					<li class="nav-item">
 						<a class="nav-link" href="https://themes.getbootstrap.com/store/webestica/">Buy now!</a>
 					</li>
+                    {% if not request.user.is_authenticated %}
 					<li class="nav-item">
 						<a class="nav-link" href="{% url 'sign-in' %}">Login / Join</a>
 					</li>
@@ -437,11 +438,12 @@ Header START -->
 						</div>
 					</li>
 
-					<!-- Nav item 5 link-->
-					<li class="nav-item"> <a class="nav-link" href="dashboard.html">Dashboard</a></li>
+					{% else %}
+					<li class="nav-item"> <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a></li>
+
 				</ul>
 			</div>
-			<!-- Main navbar END -->
+			<!-- {% endif %}
 
 			<!-- Nav right START -->
 			<div class="nav flex-nowrap align-items-center">
