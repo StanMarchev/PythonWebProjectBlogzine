@@ -142,3 +142,4 @@ AUTH_USER_MODEL = 'blog_auth.BlogzineCenterUser'
 LOGIN_REDIRECT_URL = reverse_lazy('dashboard')
 
 LOGOUT_REDIRECT_URL = reverse_lazy('home')
+LOGIN_URL = reverse_lazy('sign-in')
