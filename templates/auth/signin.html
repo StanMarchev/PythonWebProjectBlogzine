@@ -352,22 +352,25 @@ Inner intro START -->
         <div class="p-4 p-sm-5 bg-primary bg-opacity-10 rounded">
 					<h2>Log in to your account</h2>
 					<!-- Form START -->
-					<form class="mt-4">
-						<!-- Email -->
-						<div class="mb-3">
-							<label class="form-label" for="exampleInputEmail1">Email address</label>
-							<input type="email" class="form-control" id="exampleInputEmail1" placeholder="E-mail">
-						</div>
-						<!-- Password -->
-						<div class="mb-3">
-							<label class="form-label" for="exampleInputPassword1">Password</label>
-							<input type="password" class="form-control" id="exampleInputPassword1" placeholder="*********">
-						</div>
+					<form class="mt-4"  method="POST" action="{% url 'sign-in' %}">
+{#						<!-- Email -->#}
+{#						<div class="mb-3">#}
+{#							<label class="form-label" for="exampleInputEmail1">Email address</label>#}
+{#							<input type="email" class="form-control" id="exampleInputEmail1" placeholder="E-mail">#}
+{#						</div>#}
+{#						<!-- Password -->#}
+{#						<div class="mb-3">#}
+{#							<label class="form-label" for="exampleInputPassword1">Password</label>#}
+{#							<input type="password" class="form-control" id="exampleInputPassword1" placeholder="*********">#}
+{#						</div>#}
 						<!-- Checkbox -->
-						<div class="mb-3 form-check">
-							<input type="checkbox" class="form-check-input" id="exampleCheck1">
-							<label class="form-check-label" for="exampleCheck1">keep me signed in</label>
-						</div>
+{#						<div class="mb-3 form-check">#}
+{#							<input type="checkbox" class="form-check-input" id="exampleCheck1">#}
+{#							<label class="form-check-label" for="exampleCheck1">keep me signed in</label>#}
+{#						</div>#}
+
+						{% csrf_token %}
+                        {{ form.as_p }}
 						<!-- Button -->
 						<div class="row align-items-center">
 							<div class="col-sm-4">

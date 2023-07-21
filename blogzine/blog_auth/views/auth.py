@@ -2,7 +2,7 @@
 from django.contrib.auth.views import LoginView, LogoutView
 from django.views.generic import CreateView, TemplateView
 from django.urls import reverse_lazy
-from django.contrib.auth import login
+from django.contrib.auth import login, authenticate
 from django.shortcuts import redirect
 
 from blogzine.blog_auth.forms.auth import SignUpForm, SignInForm
@@ -15,18 +15,17 @@ class SignUpView(CreateView):
     form_class = SignUpForm
     success_url = reverse_lazy('home')
 
+    def form_valid(self, form):
+        response=super().form_valid(form)
+        login(self.request, self.object)
+        return response
+
+
 
 class SignInView(LoginView):
     template_name = 'auth/signin.html'
     form_class = SignInForm
-
-    def form_valid(self, form):
-        user = form.get_user()
-        if user.is_verified:
-            login(self.request, user)
-            return redirect('dashboard', user.username)
-        else:
-            return redirect('sign-up', user.id)
+    redirect_authenticated_user = True
 
 
 class SignOutView(LogoutView):
