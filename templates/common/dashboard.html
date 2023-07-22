@@ -123,10 +123,10 @@ Header START -->
 						<a class="nav-link dropdown-toggle" href="#" id="postMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi bi-pencil me-1"></i>Post</a>
 						<ul class="dropdown-menu" aria-labelledby="postMenu">
 							<!-- dropdown submenu -->
-							<li> <a class="dropdown-item" href="../dashboard-post-list.html">Post List</a> </li>
-							<li> <a class="dropdown-item" href="../dashboard-post-categories.html">Post Categories</a> </li>
-							<li> <a class="dropdown-item" href="../dashboard-post-create.html">Create a Post</a> </li>
-							<li> <a class="dropdown-item" href="../dashboard-post-edit.html">Edit Post</a> </li>
+							<li> <a class="dropdown-item" href="../blog_post/dashboard-post-list.html">Post List</a> </li>
+							<li> <a class="dropdown-item" href="../blog_post/dashboard-post-categories.html">Post Categories</a> </li>
+							<li> <a class="dropdown-item" href="../blog_post/dashboard-post-create.html">Create a Post</a> </li>
+							<li> <a class="dropdown-item" href="../blog_post/dashboard-post-edit.html">Edit Post</a> </li>
 						</ul>
 					</li>
 
@@ -136,7 +136,7 @@ Header START -->
 						<ul class="dropdown-menu" aria-labelledby="pagesMenu">
 							<li> <a class="dropdown-item" href="../dashboard-author-list.html">Author List</a></li>
 							<li> <a class="dropdown-item" href="../dashboard-author-single.html">Author Single</a></li>
-							<li> <a class="dropdown-item" href="../dashboard-edit-profile.html">Edit Profile</a></li>
+							<li> <a class="dropdown-item" href="../auth/dashboard-edit-profile.html">Edit Profile</a></li>
 							<li> <a class="dropdown-item" href="../dashboard-reviews.html">Reviews</a></li>
 							<li> <a class="dropdown-item" href="../dashboard-settings.html">Settings</a></li>
 							<li class="dropdown-divider"></li>
@@ -278,10 +278,10 @@ Header START -->
 							<hr>
 						</li>
 						<!-- Links -->
-						<li><a class="dropdown-item" href="#"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a></li>
+						<li><a class="dropdown-item" href="{% url 'profile-edit' pk=1 %}"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a></li>
 						<li><a class="dropdown-item" href="#"><i class="bi bi-gear fa-fw me-2"></i>Account Settings</a></li>
 						<li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Help</a></li>
-						<li><a class="dropdown-item" href="#"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
+						<li><a class="dropdown-item" href="{% url 'sign-out' %}"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
 						<li class="dropdown-divider mb-2"></li>
 						<li>
 							<div class="align-items-center text-center py-0">
@@ -800,7 +800,7 @@ Main contain START -->
 										<td>
                       <div class="d-flex gap-2">
                         <a href="#" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="bi bi-trash"></i></a>
-                        <a href="../dashboard-post-edit.html" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="bi bi-pencil-square"></i></a>
+                        <a href="../blog_post/dashboard-post-edit.html" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="bi bi-pencil-square"></i></a>
                       </div>
 										</td>
 									</tr>
@@ -829,7 +829,7 @@ Main contain START -->
 										<td>
                       <div class="d-flex gap-2">
                         <a href="#" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="bi bi-trash"></i></a>
-                        <a href="../dashboard-post-edit.html" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="bi bi-pencil-square"></i></a>
+                        <a href="../blog_post/dashboard-post-edit.html" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="bi bi-pencil-square"></i></a>
                       </div>
 										</td>
 									</tr>
@@ -858,7 +858,7 @@ Main contain START -->
 										<td>
                       <div class="d-flex gap-2">
                         <a href="#" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="bi bi-trash"></i></a>
-                        <a href="../dashboard-post-edit.html" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="bi bi-pencil-square"></i></a>
+                        <a href="../blog_post/dashboard-post-edit.html" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="bi bi-pencil-square"></i></a>
                       </div>
 										</td>
 									</tr>
@@ -887,7 +887,7 @@ Main contain START -->
 										<td>
                       <div class="d-flex gap-2">
                         <a href="#" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="bi bi-trash"></i></a>
-                        <a href="../dashboard-post-edit.html" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="bi bi-pencil-square"></i></a>
+                        <a href="../blog_post/dashboard-post-edit.html" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="bi bi-pencil-square"></i></a>
                       </div>
 										</td>
 									</tr>
@@ -916,7 +916,7 @@ Main contain START -->
 										<td>
                       <div class="d-flex gap-2">
                         <a href="#" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="bi bi-trash"></i></a>
-                        <a href="../dashboard-post-edit.html" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="bi bi-pencil-square"></i></a>
+                        <a href="../blog_post/dashboard-post-edit.html" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="bi bi-pencil-square"></i></a>
                       </div>
 										</td>
 									</tr>
@@ -945,7 +945,7 @@ Main contain START -->
 										<td>
                       <div class="d-flex gap-2">
                         <a href="#" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="bi bi-trash"></i></a>
-                        <a href="../dashboard-post-edit.html" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="bi bi-pencil-square"></i></a>
+                        <a href="../blog_post/dashboard-post-edit.html" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="bi bi-pencil-square"></i></a>
                       </div>
 										</td>
 									</tr>

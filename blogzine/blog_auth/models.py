@@ -1,6 +1,6 @@
 from blogzine.utils.validators import validate_alphabet_characters_english
 from django.contrib.auth.models import User, PermissionsMixin, UserManager
-from django.contrib.auth.base_user import AbstractBaseUser
+from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.core.validators import MinLengthValidator
 from django.db import models
 
@@ -49,3 +49,6 @@ class BlogzineCenterUser(AbstractBaseUser, PermissionsMixin):
 
     class Meta:
         verbose_name = 'blog_user'
+
+
+
