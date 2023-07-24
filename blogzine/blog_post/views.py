@@ -13,7 +13,8 @@ class PostDetailsView(views.View):
 class PostCreateView(CreateView):
     model = CreatePost
     template_name = 'blog_post/dashboard-post-create.html'
-    success_url = reverse_lazy('dashboard')
+    success_url = reverse_lazy('home')
+    fields = '__all__'
 
     def form_valid(self, form):
         form.instance.author = self.request.user
