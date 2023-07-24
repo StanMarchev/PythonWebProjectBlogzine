@@ -42,7 +42,7 @@ class CreatePost(models.Model):
         )
     )
 
-    post_body = models.CharField(
+    post_body = models.TextField(
         max_length=20,
         validators=(
             validate_alphabet_characters_english,
