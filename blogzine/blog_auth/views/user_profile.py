@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User
+from django.urls import reverse_lazy
 from django.views import generic as views
 
 from blogzine.blog_auth.forms.user_profile import ProfileEdit
@@ -11,8 +12,10 @@ class ProfileDetailsView(views.DetailView):
 
 
 class ProfileEditView(views.UpdateView):
-
+    model = BlogzineCenterUser
     template_name = 'auth/dashboard-edit-profile.html'
+    success_url = reverse_lazy('dashboard')
+    fields = '__all__'
 
 
 

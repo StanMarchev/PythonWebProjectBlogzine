@@ -26,7 +26,7 @@ Main contain START -->
 					<!-- Card body -->
 					<div class="card-body">
             <!-- Form START -->
-            <form method="POST" action="{% url 'post-create' pk=1 %}">
+            <form method="POST" action="{% url 'post-create' %}" enctype="multipart/form-data">
               <!-- Main form -->
                 {% csrf_token %}
                 {{ form.as_p }}
