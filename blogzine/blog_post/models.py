@@ -1,5 +1,6 @@
 from django.core.validators import MinLengthValidator
 from django.db import models
+from django.utils import timezone
 
 from blogzine.blog_auth.models import BlogzineCenterUser
 from blogzine.utils.validators import validate_alphabet_characters_english
@@ -70,6 +71,15 @@ class CreatePost(models.Model):
     class Meta:
         ordering = ['created_on']
         verbose_name = 'Discussion'
+
+    def __str__(self):
+        return self.title
+
+
+class Post(models.Model):
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    pub_date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return self.title

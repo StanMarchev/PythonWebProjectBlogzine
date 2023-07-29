@@ -1,3 +1,7 @@
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +15,7 @@
 	<!-- Dark mode -->
 	<script>
 		const storedTheme = localStorage.getItem('theme')
- 
+
 		const getPreferredTheme = () => {
 			if (storedTheme) {
 				return storedTheme
@@ -65,22 +69,22 @@
 
 			}
 		})
-		
+
 	</script>
 
 	<!-- Favicon -->
-	<link rel="shortcut icon" href="assets/images/favicon.ico">
+	<link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
 
 	<!-- Google Font -->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
 
 	<!-- Plugins CSS -->
-	<link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/font-awesome/css/all.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}">
 
 	<!-- Theme CSS -->
-	<link id="style-switch" rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link id="style-switch" rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 
 <body>
@@ -98,7 +102,7 @@
 			<div class="row g-3">
 				<!-- Image -->
 				<div class="col-3">
-					<img class="rounded-2 bg-light p-2" src="assets/images/shop/02.png" alt="avatar">
+					<img class="rounded-2 bg-light p-2" src="{% static 'images/shop/02.png' %}" alt="avatar">
 				</div>
 
 				<div class="col-6">
@@ -127,7 +131,7 @@
 				</div>
 				<!-- Button -->
 				<div class="d-grid">
-					<a href="checkout.html" class="btn btn-lg btn-primary-soft mb-0">Continue to Checkout</a>
+					<a href="{% url 'update_cart' %}" class="btn btn-lg btn-primary-soft mb-0">Continue to rCheckout</a>
 				</div>
 			</div>
 		</div>
@@ -141,9 +145,9 @@ Header START -->
 	<nav class="navbar navbar-expand-xl">
 		<div class="container">
 			<!-- Logo START -->
-			<a class="navbar-brand" href="common/index.html">
-				<img class="navbar-brand-item light-mode-item" src="assets/images/logo.svg" alt="logo">			
-				<img class="navbar-brand-item dark-mode-item" src="assets/images/logo-light.svg" alt="logo">			
+			<a class="navbar-brand" href='{% url 'home' %}'>
+				<img class="navbar-brand-item light-mode-item" src="{% static 'images/logo.svg' %}" alt="logo">
+				<img class="navbar-brand-item dark-mode-item" src="{% static 'images/logo-light.svg' %}" alt="logo">
 			</a>
 			<!-- Logo END -->
 
@@ -166,23 +170,23 @@ Header START -->
 				</div>
 				<!-- Nav Search END -->
 				<ul class="navbar-nav navbar-nav-scroll ms-auto">
-					
+
 					<!-- Nav item 1 Demos -->
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="homeMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>
 						<ul class="dropdown-menu" aria-labelledby="homeMenu">
-							<li> <a class="dropdown-item" href="common/index.html">Home default</a></li>
-							<li> <a class="dropdown-item" href="index-lazy.html">Home lazy load</a></li>
-							<li> <a class="dropdown-item" href="index-2.html">Magazine classic</a></li>
-							<li> <a class="dropdown-item" href="index-3.html">Magazine</a></li>
-							<li> <a class="dropdown-item" href="index-4.html">Home cards</a></li>
-							<li> <a class="dropdown-item" href="index-5.html">Blog classic</a></li>
-							<li> <a class="dropdown-item" href="index-6.html">Blog Personal </a></li>
-							<li> <a class="dropdown-item" href="index-7.html">Blog Vintage</a></li>
-							<li> <a class="dropdown-item" href="index-8.html">Blog Tech</a></li>
-							<li> <a class="dropdown-item" href="index-9.html">Blog Fashion</a></li>
-							<li> <a class="dropdown-item" href="index-10.html">Blog Podcast</a></li>
-							<li> <a class="dropdown-item" href="index-11.html">Home Shop </a></li>
+							<li> <a class="dropdown-item" href="../common/index.html">Home default</a></li>
+							<li> <a class="dropdown-item" href="../index-lazy.html">Home lazy load</a></li>
+							<li> <a class="dropdown-item" href="../index-2.html">Magazine classic</a></li>
+							<li> <a class="dropdown-item" href="../index-3.html">Magazine</a></li>
+							<li> <a class="dropdown-item" href="../index-4.html">Home cards</a></li>
+							<li> <a class="dropdown-item" href="../index-5.html">Blog classic</a></li>
+							<li> <a class="dropdown-item" href="../index-6.html">Blog Personal </a></li>
+							<li> <a class="dropdown-item" href="../index-7.html">Blog Vintage</a></li>
+							<li> <a class="dropdown-item" href="../index-8.html">Blog Tech</a></li>
+							<li> <a class="dropdown-item" href="../index-9.html">Blog Fashion</a></li>
+							<li> <a class="dropdown-item" href="../index-10.html">Blog Podcast</a></li>
+							<li> <a class="dropdown-item" href="index_shop.html">Home Shop </a></li>
 						</ul>
 					</li>
 
@@ -194,14 +198,14 @@ Header START -->
 						<a class="nav-link dropdown-toggle" href="#" id="pagesMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
 						<ul class="dropdown-menu" aria-labelledby="pagesMenu">
 							<li> <a class="dropdown-item" href="shop-detail.html">Shop detail</a> </li>
-							<li> <a class="dropdown-item" href="checkout.html">Checkout</a> </li>
+							<li> <a class="dropdown-item" href="{% url 'update_cart' %}">Checkout</a> </li>
 							<li> <a class="dropdown-item" href="my-cart.html">Cart</a> </li>
-							<li> <a class="dropdown-item" href="empty-cart.html">Empty Cart</a> </li>
+							<li> <a class="dropdown-item" href="../empty-cart.html">Empty Cart</a> </li>
 						</ul>
 					</li>
 
 					<!-- Nav item 4 link-->
-					<li class="nav-item"> <a class="nav-link" href="contact-us.html">Contact</a></li>
+					<li class="nav-item"> <a class="nav-link" href="../contact-us.html">Contact</a></li>
 				</ul>
 			</div>
 			<!-- Main navbar END -->
@@ -248,7 +252,7 @@ Header START -->
 					<a class="nav-link btn btn-light btn-round mb-0" data-bs-toggle="offcanvas" href="#offcanvasMenu" role="button" aria-controls="offcanvasMenu">
 							<i class="bi bi-cart3 fa-fw" data-bs-target="#offcanvasMenu"></i>
 					</a>
-					<span class="position-absolute top-0 start-100 translate-middle badge smaller rounded-circle bg-dark mt-xl-2 ms-n1">2 
+					<span class="position-absolute top-0 start-100 translate-middle badge smaller rounded-circle bg-dark mt-xl-2 ms-n1">2
 						<span class="visually-hidden">unread messages</span>
 					</span>
 				</div>
@@ -258,207 +262,15 @@ Header START -->
 	<!-- Logo Nav END -->
 </header>
 <!-- =======================
-Header END -->
-
-<!-- **************** MAIN CONTENT START **************** -->
-<main>
-
-<!-- =======================
-Main START -->
-<section class="pt-3 pt-lg-5">
-	<div class="container">
-		<div class="row g-4 g-lg-5">
-			
-			<!-- Left side START -->
-			<div class="col-lg-8">
-					<!-- My Cart START -->
-					<div class="card bg-transparent">
-						<!-- Card header -->
-						<div class="card-header border-bottom d-flex justify-content-between align-items-center px-0 pb-3">
-							<h4 class="card-title mb-0">My Cart</h4>
-							<span>2 Items</span>
-						</div>
-
-						<!-- Card body --> 
-						<div class="card-body p-0 pt-4">
-							<!-- Product item START -->
-							<div class="row">
-								<!-- Image -->
-								<div class="col-5 col-md-2">
-									<div class="bg-light p-2 rounded-2">
-										<img src="assets/images/shop/02.png" alt="">
-									</div>
-								</div>
-
-								<div class="col-7 col-md-10">
-									<div class="row g-2">
-										<!-- Content -->
-										<div class="col-md-7">
-											<!-- Product detail START -->
-											<h5 class="mb-1"><a href="#">Osprey Packs Backpack</a></h5>
-                      <small class="text-success">In Stock</small>
-											<!-- List -->
-											<ul class="nav nav-divider small align-items-center mt-1">
-												<li class="nav-item">Gender: Male</li>
-												<li class="nav-item">Color: Yellow</li>
-												<li class="nav-item">Size: One size</li>
-											</ul>
-										</div>
-			
-										<!-- Select -->
-										<div class="col-md-2">
-											<select class="form-select form-select-sm" aria-label="Default select example">
-												<option value="1">01</option>
-												<option value="2">02</option>
-												<option value="3">03</option>
-											</select>
-										</div>
-		
-										<!-- Price and button -->
-										<div class="col-md-3 text-md-end">
-											<h5>$103.00</h5>
-											<!-- Buttons -->
-											<div class="hstack gap-1 flex-wrap text-primary-hover mt-2 justify-content-md-end">
-												<a href="#" class="text-reset small"><i class="bi bi-trash3 me-2"></i>Remove</a>
-												<a href="#" class="text-reset small"><i class="bi bi-heart me-2"></i>Save for later</a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>	
-							<!-- Product item END -->
-
-							<hr> <!-- Divider -->
-
-							<!-- Product item START -->
-							<div class="row align-items-center">
-								<!-- Image -->
-								<div class="col-5 col-md-2">
-									<div class="bg-light p-2 rounded-2">
-										<img src="assets/images/shop/04.png" alt="">
-									</div>
-								</div>
-
-								<div class="col-7 col-md-10">
-									<div class="row g-2">
-										<!-- Content -->
-										<div class="col-md-7">
-											<!-- Product detail START -->
-											<h5 class="mb-1"><a href="#">Men's Watertight Jacket</a></h5>
-                      <small class="text-primary">Available in 5 days</small>
-											<!-- List -->
-											<ul class="nav nav-divider small align-items-center mt-1">
-												<li class="nav-item">Gender: Male</li>
-												<li class="nav-item">Color: Yellow</li>
-												<li class="nav-item">Size: L</li>
-											</ul>
-										</div>
-			
-										<!-- Select -->
-										<div class="col-md-2">
-											<select class="form-select form-select-sm" aria-label="Default select example">
-												<option value="1">01</option>
-												<option value="2">02</option>
-												<option value="3">03</option>
-											</select>
-										</div>
-		
-										<!-- Price and button -->
-										<div class="col-md-3 text-md-end">
-											<h5>$98.00</h5>
-											<!-- Buttons -->
-											<div class="hstack gap-1 flex-wrap text-primary-hover mt-2 justify-content-md-end">
-												<a href="#" class="text-reset small"><i class="bi bi-trash3 me-2"></i>Remove</a>
-												<a href="#" class="text-reset small"><i class="bi bi-heart me-2"></i>Save for later</a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- Product item END -->
-						</div>
-
-						<!-- Card footer -->
-						<div class="card-footer p-0 pt-3 text-end">
-							<button class="btn btn-primary mb-0" disabled="">Update cart</button>
-						</div>
-					</div>
-					<!-- My Cart END -->
-			</div>
-			<!-- Left side END -->
-
-			<!-- Right Side START -->
-			<div class="col-lg-4">
-				<!-- Coupon code START -->
-				<div class="mb-4">
-					<h5 class="mb-2">Enter Coupon Code</h5>
-					<!-- Input group -->
-					<div class="input-group">
-						<input class="form-control form-control" placeholder="Coupon code">
-						<button type="button" class="btn btn-dark">Apply</button>
-					</div>
-					<small>20% Off Discount</small>
-				</div>
-				<!-- Coupon code END -->
-
-				<!-- Order summary START -->
-				<div class="card bg-light border border-secondary border-opacity-25 rounded-2 p-4">
-					<!-- card header -->
-					<div class="card-header bg-light p-0 pb-3">
-						<h5 class="card-title mb-0">Order Summary</h5>
-					</div>
-
-					<!-- Card body -->
-					<div class="card-body p-0 pb-3">
-						<ul class="list-group list-group-borderless">
-							<li class="list-group-item d-flex justify-content-between align-items-center">
-								<span>Subtotal</span>
-								<span class="h6 mb-0">$260.54</span>
-							</li>
-							<li class="list-group-item d-flex justify-content-between align-items-center">
-								<span>Service Charge</span>
-								<span class="h6 mb-0">-$50</span>	
-							</li>
-							<li class="list-group-item d-flex justify-content-between align-items-center">
-								<span>Tax</span>
-								<span class="h6 mb-0">$10</span>
-							</li>
-						</ul>
-					</div>
-
-					<!-- Card footer -->
-					<div class="card-footer bg-light border-top p-0 pt-3">
-						<div class="d-flex justify-content-between align-items-center mb-3">
-							<span>Payable Now</span>
-							<span class="h5 mb-0">$210.54</span>
-						</div>
-
-						<!-- Button -->
-						<div class="d-grid"><a href="#" class="btn btn-primary mb-0">Checkout</a></div>
-					</div>
-				</div>
-				<!-- Order summary END -->
-				<p class="small mb-0 text-center mt-2">By completing your purchase, you agree to these <a href="#">Terms of Service</a></p>
-			</div>
-			<!-- Right Side END -->
-
-		</div>
-	</div>
-</section>
-<!-- =======================
-Main END -->
-
-</main>
-<!-- **************** MAIN CONTENT END **************** -->
-
-<!-- =======================
+ {% block main_content %}
+ {% endblock %}
 Footer START -->
 <footer class="bg-dark pt-5">
 	<div class="container">
 		<!-- About and Newsletter START -->
 		<div class="row pt-3 pb-4">
 			<div class="col-md-3">
-				<img src="assets/images/logo-footer.svg" alt="footer logo">
+				<img src="{% static 'images/logo-footer.svg' %}" alt="footer logo">
 			</div>
 			<div class="col-md-5">
 				<p class="text-muted">The next-generation blog, news, and magazine theme for you to start sharing your stories today! This Bootstrap 5 based theme is ideal for all types of sites that deliver the news.</p>
@@ -472,7 +284,7 @@ Footer START -->
 					<div class="col-12">
 						<button type="submit" class="btn btn-primary m-0">Subscribe</button>
 					</div>
-					<div class="form-text mt-2">By subscribing you agree to our 
+					<div class="form-text mt-2">By subscribing you agree to our
 						<a href="#" class="text-decoration-underline text-reset">Privacy Policy</a>
 					</div>
 				</form>
@@ -491,7 +303,7 @@ Footer START -->
 				<!-- Item -->
 				<div class="mb-4 position-relative">
 					<div><a href="#" class="badge text-bg-danger mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Business</a></div>
-					<a href="post-single-3.html" class="btn-link text-white fw-normal">Up-coming business bloggers, you need to watch</a>
+					<a href="../post-single-3.html" class="btn-link text-white fw-normal">Up-coming business bloggers, you need to watch</a>
 					<ul class="nav nav-divider align-items-center small mt-2 text-muted">
 						<li class="nav-item position-relative">
 							<div class="nav-link">by <a href="#" class="stretched-link text-reset btn-link">Dennis</a>
@@ -503,7 +315,7 @@ Footer START -->
 				<!-- Item -->
 				<div class="mb-4 position-relative">
 					<div><a href="#" class="badge text-bg-info mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>Marketing</a></div>
-					<a href="post-single-3.html" class="btn-link text-white fw-normal">How did we get here? The history of the business told through tweets</a>
+					<a href="../post-single-3.html" class="btn-link text-white fw-normal">How did we get here? The history of the business told through tweets</a>
 					<ul class="nav nav-divider align-items-center small mt-2 text-muted">
 						<li class="nav-item position-relative">
 							<div class="nav-link">by <a href="#" class="stretched-link text-reset btn-link">Larry</a>
@@ -560,10 +372,10 @@ Footer START -->
 				<p class="text-muted">Download our App and get the latest Breaking News Alerts and latest headlines and daily articles near you.</p>
 				<div class="row g-2">
 					<div class="col">
-						<a href="#"><img class="w-100" src="assets/images/app-store.svg" alt="app-store"></a>
+						<a href="#"><img class="w-100" src="{% static 'images/app-store.svg' %}" alt="app-store"></a>
 					</div>
 					<div class="col">
-						<a href="#"><img class="w-100" src="assets/images/google-play.svg" alt="google-play"></a>
+						<a href="#"><img class="w-100" src="{% static 'images/google-play.svg' %}" alt="google-play"></a>
 					</div>
 				</div>
 			</div>
@@ -643,10 +455,10 @@ Footer END -->
 JS libraries, plugins and custom scripts -->
 
 <!-- Bootstrap JS -->
-<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'vendor/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
 
 <!-- Template Functions -->
-<script src="assets/js/functions.js"></script>
+<script src="{% static 'js/functions.js' %}"></script>
 
 </body>
 </html>

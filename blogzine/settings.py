@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'blogzine.common',
     'blogzine.blog_auth',
     'bootstrap5',
-    'blogzine.blog_post'
+    'blogzine.blog_post' ,
+    'blogzine.blog_shop'
 
 
 

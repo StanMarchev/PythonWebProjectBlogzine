@@ -1,0 +1,128 @@
+{% extends 'blog_shop/shop_base.html'%}
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% block main_content %}
+
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+
+<!-- =======================
+Main START -->
+<section class="pt-3 pt-lg-5">
+	<div class="container">
+		<div class="row">
+      <!-- Title -->
+      <div class="mb-4">
+        <h2 class="m-0">Searched Products</h2>
+      </div>
+			
+
+					</div>
+					<!-- Buttons -->
+					<div class="d-flex justify-content-between p-2 p-xl-0 mt-xl-3">
+						<button class="btn btn-link p-0 mb-0">Clear all</button>
+						<button class="btn btn-primary mb-0">Filter Result</button>
+					</div>
+				</div>
+				<!-- Responsive offcanvas body END -->
+			</aside>
+			<!-- Filter END -->
+
+			<!-- Main part START -->
+			<div class="col-xl-9">
+
+				<!-- Search filter START -->
+				<form class="row g-2 g-xl-4 mb-4">
+					<!-- Search -->
+					<div class="col-xl-6">
+            <div class="rounded position-relative">
+							<input class="form-control pe-5" type="search" placeholder="Search products by name or keyword..." aria-label="Search">
+							<button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="bi bi-search fs-5"> </i></button>
+						</div>
+					</div>
+
+					<!-- Select -->
+					<div class="col-md-4 col-xl-3">
+						<select class="form-select" aria-label="Default select example">
+							<option selected>Filter</option>
+							<option value="1">T-shirts</option>
+							<option value="2">Shoes</option>
+							<option value="3">Tracking bags</option>
+						</select>
+					</div>
+
+					<!-- Select -->
+					<div class="col-md-4 col-xl-3">
+						<select class="form-select" aria-label="Default select example">
+							<option selected>Sort by</option>
+							<option value="1">Name</option>
+							<option value="2">Low to High Price</option>
+							<option value="3">Heigh to Low Price</option>
+						</select>
+					</div>
+
+          <div class="col-md-4 col-xl-3 d-grid d-xl-none">
+            <!-- Filter offcanvas button -->
+						<button class="btn btn-primary-soft btn-primary-check mb-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
+							<i class="fas fa-sliders-h me-1"></i> Show filter
+						</button>
+          </div>
+				</form>
+				<!-- Search filter END -->
+
+				<!-- Product START -->
+				<div class="row g-4">
+
+{#					<!-- Adv START -->#}
+{#					<div class="col-12">#}
+{#						<div class="rounded-2 bg-dark-overlay-5 overflow-hidden p-4 p-md-5" style="background-image: url(../assets/images/shop/bg-offer.jpg);">#}
+{#							<div class="d-md-flex justify-content-between align-items-center">#}
+{#								<h4 class="text-white mb-2 mb-md-0">Save up to 40% with orders above $100</h4>#}
+{#								<a href="#" class="btn btn-primary mb-0">Shop Now</a>#}
+{#							</div>#}
+{#						</div>#}
+{#					</div>#}
+{#					<!-- Adv END -->#}
+                    {% for product in products %}
+            <li><a href="{% url 'product_detail' product.id %}">{{ product.name }}</a> - ${{ product.price }}</li>
+        {% endfor %}
+
+
+					<!-- Pagination START -->
+					<div class="col-12">
+						<nav class="d-flex justify-content-center" aria-label="navigation">
+							<!-- Pagination 1 2 3  -->
+							<ul class="pagination pagination-bordered justify-content-center d-inline-block d-lg-flex">
+								<li class="page-item">
+									<a class="page-link" href="#">First</a>
+								</li>
+								<li class="page-item"><a class="page-link" href="#">1</a></li>
+								<li class="page-item active"><a class="page-link" href="#">2</a></li>
+								<li class="page-item disabled"><a class="page-link" href="#">..</a></li>
+								<li class="page-item"><a class="page-link" href="#">22</a></li>
+								<li class="page-item"><a class="page-link" href="#">23</a></li>
+								<li class="page-item">
+									<a class="page-link" href="#">Last</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+					<!-- Pagination END -->
+				</div>
+				<!-- Product END -->
+
+			</div>
+			<!-- Main part END -->
+		</div>
+	</div>
+</section>
+<!-- =======================
+Main END -->
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+
+<!-- =======================
+{% endblock %}

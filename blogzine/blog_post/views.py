@@ -1,10 +1,10 @@
 from django import views
 from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
-from django.views.generic import CreateView, UpdateView
+from django.views.generic import CreateView, UpdateView, ListView
 
 from blogzine.blog_post.forms import CreatePostForm
-from blogzine.blog_post.models import CreatePost
+from blogzine.blog_post.models import CreatePost, Post
 
 
 # Create your views here.
@@ -47,3 +47,16 @@ class PostEditView(UpdateView):
     #     return reverse('post-create', kwargs={
     #         'pk': self.object.pk
     #     })
+
+
+
+
+class PostListView(ListView):
+    model = Post
+    template_name = 'blog_post/dashboard-post-list.html'
+    context_object_name = 'posts'
+    paginate_by = 10
+
+    def get_queryset(self):
+
+        return Post.objects.all()
