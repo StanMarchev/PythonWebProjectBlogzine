@@ -123,7 +123,7 @@ Header START -->
 						<a class="nav-link dropdown-toggle" href="#" id="postMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi bi-pencil me-1"></i>Post</a>
 						<ul class="dropdown-menu" aria-labelledby="postMenu">
 							<!-- dropdown submenu -->
-							<li> <a class="dropdown-item" href="{% url 'post-list' pk=1 %}">Post List</a> </li>
+							<li> <a class="dropdown-item" href="{% url 'post-list'  %}">Post List</a> </li>
 						<!--	<li> <a class="dropdown-item" href="../blog_post/dashboard-post-categories.html">Post Categories</a> </li> -->
 							<li> <a class="dropdown-item" href="{% url 'post-create'  %}">Create a Post</a> </li>
 						<!--	<li> <a class="dropdown-item" href="{% url 'post-edit' pk=1%}">Edit Post</a> </li> -->
@@ -278,7 +278,7 @@ Header START -->
 							<hr>
 						</li>
 						<!-- Links -->
-						<li><a class="dropdown-item" href="{% url 'profile-edit' pk=1 %}"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a></li>
+						<li><a class="dropdown-item" href="{% url 'profile-edit'  %}"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a></li>
 						<li><a class="dropdown-item" href="#"><i class="bi bi-gear fa-fw me-2"></i>Account Settings</a></li>
 						<li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Help</a></li>
 						<li><a class="dropdown-item" href="{% url 'sign-out' %}"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>

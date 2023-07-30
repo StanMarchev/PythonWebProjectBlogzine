@@ -16,7 +16,7 @@ def product_detail(request, product_id):
 
 
 
-# shop/views.py
+
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Product, Cart, CartItem
 
@@ -29,7 +29,7 @@ def add_to_cart(request, product_id):
         cart_item.quantity += 1
         cart_item.save()
 
-    return redirect('product_list')  # Assuming you have a URL named 'product_list' for the product list view
+    return redirect('product_list')
 
 
 def update_cart(request):

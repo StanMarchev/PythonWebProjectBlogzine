@@ -1,24 +1,34 @@
-from django.contrib.auth.models import User
-from django.urls import reverse_lazy
-from django.views import generic as views
+from django.contrib.auth.decorators import login_required
 
-from blogzine.blog_auth.forms.user_profile import ProfileEdit
-from blogzine.blog_auth.models import BlogzineCenterUser
-
-
-class ProfileDetailsView(views.DetailView):
-    pass
+from django.shortcuts import redirect, render
 
 
 
-class ProfileEditView(views.UpdateView):
-    model = BlogzineCenterUser
-    template_name = 'auth/dashboard-edit-profile.html'
-    success_url = reverse_lazy('dashboard')
-    fields = '__all__'
+from blogzine.blog_auth.forms.user_profile import  ProfileEditForm
+
+
+
+@login_required
+def view_profile(request):
+    user = request.user
+    return render(request, 'common', {'user': user})
+
+
+
+@login_required
+def edit_profile(request):
+    user = request.user
+
+    if request.method == 'POST':
+        form = ProfileEditForm(request.POST, instance=user)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')  #
+    else:
+        form = ProfileEditForm(instance=user)
+
+    return render(request, 'auth/dashboard-edit-profile.html', {'form': form})
 
 
 
 
-class ProfileDeleteView(views.DeleteView):
-    pass

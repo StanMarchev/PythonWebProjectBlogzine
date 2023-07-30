@@ -134,54 +134,16 @@ Post list START -->
                       <th scope="col" class="border-0 rounded-end">Action</th>
                     </tr>
                   </thead>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                {% for post in posts %}
+            <li>
+                <h2>{{ post.post_name }}</h2>
+                <p>Category: {{ post.get_category_display }}</p>
+                <p>Published on: {{ post.created_on }}</p>
+                <p>Author: {{ post.author.username }}</p>
+                <p>{{ post.short_description }}</p>
+                <a href="{% url 'post-details' post.id %}">Read More</a>
+            </li>
+        {% endfor %}
               <!--Pagination START -->
               <div class="d-sm-flex justify-content-sm-between align-items-sm-center mt-4 mt-sm-3">
                 <!-- Content -->

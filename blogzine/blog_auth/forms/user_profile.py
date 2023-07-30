@@ -1,5 +1,9 @@
 from django import forms
 
+from blogzine.blog_auth.models import BlogzineCenterUser
 
-class ProfileEdit(forms.ModelForm):
-    pass
+
+class ProfileEditForm(forms.ModelForm):
+    class Meta:
+        model = BlogzineCenterUser
+        fields = ['username', 'email']

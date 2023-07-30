@@ -51,12 +51,6 @@ class PostEditView(UpdateView):
 
 
 
-class PostListView(ListView):
-    model = Post
-    template_name = 'blog_post/dashboard-post-list.html'
-    context_object_name = 'posts'
-    paginate_by = 10
-
-    def get_queryset(self):
-
-        return Post.objects.all()
+def post_list(request):
+    posts = Post.objects.all()
+    return render(request, 'blog_post/dashboard-post-list.html', {'posts': posts})
