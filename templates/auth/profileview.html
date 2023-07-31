@@ -70,35 +70,35 @@ Main contain START -->
     </div>
     </div>
    <head>
-    <title>Edit Profile</title>
-    <style>
-        .centered-form-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh; /* Adjust the height to your preference */
-        }
-        .centered-form {
-            max-width: 400px; /* Adjust the width to your preference */
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-        }
-    </style>
+<html>
+<html>
+
+<head>
+    <title>User Profile</title>
+
+
 </head>
+
 <body>
-    <div class="centered-form-container">
-        <div class="centered-form">
-            <h1>Edit Profile</h1>
-            <form method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit">Save Changes</button>
-            </form>
-        </div>
-    </div>
+    <h1>User Profile</h1>
+
+
+    <p>First Name: {{ user_profile.first_name }}</p>
+    <p>Surname: {{ user_profile.surname }}</p>
+
+    {% if user_profile.profile_picture %}
+        <p>Profile Picture: <img src="{{ user_profile.profile_picture.url }}" alt="Profile Picture" width="100"></p>
+    {% else %}
+        <p>No profile picture available.</p>
+    {% endif %}
+
+    <p>Location: {{ user_profile.location }}</p>
+    <p>Telephone Number: {{ user_profile.telephone_number }}</p>
+    <p>Interests: {{ user_profile.interests }}</p>
+
+    <!-- Add more profile information fields as needed -->
 </body>
+</html>
 {#    <div class="row g-4">#}
 {#      <!-- Left sidebar START -->#}
 {#      <div class="col-lg-7 col-xxl-8">#}
