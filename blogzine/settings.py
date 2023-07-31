@@ -39,9 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_bootstrap5',
     'blogzine.common',
     'blogzine.blog_auth',
-    'bootstrap5',
+
     'blogzine.blog_post' ,
     'blogzine.blog_shop'
 

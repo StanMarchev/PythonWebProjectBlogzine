@@ -52,3 +52,33 @@ class BlogzineCenterUser(AbstractBaseUser, PermissionsMixin):
 
 
 
+class UserProfile(models.Model):
+    user = models.OneToOneField(
+        BlogzineCenterUser,
+        on_delete=models.CASCADE
+    )
+    first_name = models.CharField(
+        max_length=50
+    )
+    surname = models.CharField(
+        max_length=50
+    )
+    profile_picture = models.ImageField(
+        upload_to='profile_pics/',
+        blank=True,
+        null=True
+    )
+    location = models.CharField(
+        max_length=100,
+        blank=True
+    )
+    telephone_number = models.CharField(
+        max_length=15,
+        blank=True
+    )
+    interests = models.TextField(
+        blank=True
+    )
+
+    def __str__(self):
+        return f"{self.user.username}'s Profile"
