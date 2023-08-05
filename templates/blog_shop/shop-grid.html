@@ -85,10 +85,12 @@ Main START -->
 {#						</div>#}
 {#					</div>#}
 {#					<!-- Adv END -->#}
+                    <div class="centered-container">
+
                     {% for product in products %}
             <li><a href="{% url 'product_detail' product.id %}">{{ product.image }}{{ product.name }}</a> - ${{ product.price }}</li>
         {% endfor %}
-
+                    </div>
 
 					<!-- Pagination START -->
 					<div class="col-12">

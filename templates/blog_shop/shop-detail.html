@@ -14,7 +14,10 @@ Main START -->
 	<div class="container">
 		<div class="row g-4 g-lg-0 justify-content-between">
 			<!-- Image -->
-			{{ product.images }}
+			<div class="col-lg-6">
+    <img src="{{ product.image }}" alt="{{ product.name }}" class="img-fluid">
+
+</div>
 
 			<!-- Detail -->
 			<div class="col-lg-6">

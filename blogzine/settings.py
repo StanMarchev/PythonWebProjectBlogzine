@@ -90,10 +90,10 @@ WSGI_APPLICATION = 'blogzine.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "blogzine",
+        "NAME": "postgres",
         "USER": "postgres",
-        "PASSWORD": "bgiknow123",
-        "HOST": "127.0.0.1",
+        "PASSWORD": "pirata123",
+        "HOST": "localhost",
         "PORT": "5432",
     }
 }

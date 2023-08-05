@@ -134,16 +134,45 @@ Post list START -->
                       <th scope="col" class="border-0 rounded-end">Action</th>
                     </tr>
                   </thead>
-                {% for post in posts %}
+
+<head>
+    <title>Posts List</title>
+</head>
+<body>
+    <h1>Posts List</h1>
+    <ul>
+        {% for post in posts %}
             <li>
-                <h2>{{ post.post_name }}</h2>
-                <p>Category: {{ post.get_category_display }}</p>
-                <p>Published on: {{ post.created_on }}</p>
-                <p>Author: {{ post.author.username }}</p>
-                <p>{{ post.short_description }}</p>
-                <a href="{% url 'post-details' post.id %}">Read More</a>
+                <h2>{{ post.title }}</h2>
+                <p>{{ post.content }}</p>
+                <!-- Add other post details here -->
             </li>
         {% endfor %}
+    </ul>
+
+    <!-- Pagination -->
+    {% if is_paginated %}
+        <div class="pagination">
+            <span class="step-links">
+                {% if previous_page %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ previous_page }}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ current_page }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+
+                {% if next_page %}
+                    <a href="?page={{ next_page }}">next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    {% endif %}
+</body>
+</html>
+
               <!--Pagination START -->
               <div class="d-sm-flex justify-content-sm-between align-items-sm-center mt-4 mt-sm-3">
                 <!-- Content -->

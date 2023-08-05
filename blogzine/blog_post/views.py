@@ -1,4 +1,5 @@
 from django import views
+from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView, UpdateView, ListView
@@ -50,7 +51,17 @@ class PostEditView(UpdateView):
 
 
 
-
 def post_list(request):
-    posts = Post.objects.all()
-    return render(request, 'blog_post/dashboard-post-list.html', {'posts': posts})
+    posts = CreatePost.objects.all()
+    paginator = Paginator(posts, 10)
+
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    context = {
+        'page_obj' : page_obj  ,
+        'posts' : posts,
+    }
+    print(posts)
+
+    return render(request, 'blog_post/dashboard-post-list.html', context)

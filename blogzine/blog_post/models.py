@@ -73,7 +73,7 @@ class CreatePost(models.Model):
         verbose_name = 'Discussion'
 
     def __str__(self):
-        return self.title
+        return self.post_name
 
 
 class Post(models.Model):
