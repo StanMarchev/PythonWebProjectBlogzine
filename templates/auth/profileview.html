@@ -23,7 +23,11 @@ Main contain START -->
               <!-- Avatar -->
               <div class="col-sm-12 col-md-auto text-center text-md-start">
                 <div class="avatar avatar-xxl mt-n5">
+                    {% if user_profile.profile_picture %}
                   <img class="avatar-img rounded-circle border border-white border-3 shadow" src="{{ user_profile.profile_picture.url }}" alt="">
+                    {% else %}
+                     <img class="avatar-img rounded-circle border border-white border-3 shadow" src="{% static 'images/logo.svg' %}" alt="">
+                    {% endif %}
                 </div>
               </div>
               <!-- Profile info -->

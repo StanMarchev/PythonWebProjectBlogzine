@@ -139,12 +139,14 @@ Post list START -->
     <title>Posts List</title>
 </head>
 <body>
+
     <h1>Posts List</h1>
     <ul>
         {% for post in posts %}
             <li>
-                <h2>{{ post.title }}</h2>
-                <p>{{ post.content }}</p>
+                <h2><a href="{% url 'post-details' post.id %}">{{ post.post_name }}</a></h2>
+                <p>{{ post.post_type }}</p>
+                <p>{{ post.created_on }}</p>
                 <!-- Add other post details here -->
             </li>
         {% endfor %}

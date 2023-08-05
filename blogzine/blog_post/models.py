@@ -35,7 +35,7 @@ class CreatePost(models.Model):
     post_type = models.CharField(max_length=20, choices=TOPIC_CHOICES)
 
 
-    short_description = models.CharField(
+    short_description = models.TextField(
         max_length=200,
         validators=(
             validate_alphabet_characters_english,
@@ -43,7 +43,7 @@ class CreatePost(models.Model):
         )
     )
 
-    post_body = models.TextField(
+    post_body = models.CharField(
         max_length=20,
         validators=(
             validate_alphabet_characters_english,
@@ -54,18 +54,19 @@ class CreatePost(models.Model):
 
     tags = models.CharField(max_length=20)
 
-    category = models.CharField(max_length=50, choices=CATEGORY_CHOICES, unique=True)
+    category = models.CharField(max_length=50, choices=CATEGORY_CHOICES, unique=False)
 
     author = models.ForeignKey(
         BlogzineCenterUser,
         on_delete=models.CASCADE,
-        null=True
+
     )
 
     created_on = models.DateTimeField(
         auto_now_add=True
     )
 
+    id = models.AutoField(primary_key=True)
 
 
     class Meta:
