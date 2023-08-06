@@ -104,7 +104,7 @@ Main START -->
 				 <h2>Leave a Comment</h2>
   <form method="post" action="{% url 'post-comments' post.id %}">
     {% csrf_token %}
-    {{ form.as_p }}
+    {{ form.as_p}}
       <button type="submit">Submit Comment</button>
   </form>
 			</div>

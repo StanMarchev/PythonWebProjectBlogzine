@@ -1,9 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Comment
-from .forms import CommentForm
+from django.urls import reverse
+
 from blogzine.blog_post.models import Post, CreatePost
 
-# comments/views.py
 
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
@@ -12,7 +11,7 @@ from .forms import CommentForm
 
 class CommentView(View):
     def get(self, request, pk):
-        post = get_object_or_404(CreatePost, pk=pk)
+        post = get_object_or_404(Post, pk=pk)
         comments = Comment.objects.filter(post=post)
         form = CommentForm()
         return render(request, 'blog_post/post-single.html', {'post': post, 'comments': comments, 'form': form})
@@ -27,7 +26,7 @@ class CommentView(View):
                 comment = form.save(commit=False)
                 comment.post = post
                 comment.save()
-                return redirect('post-details', pk=pk)
+                return redirect(reverse('post-details', kwargs={'pk': post.pk}))
         else:
             form = CommentForm()
 
