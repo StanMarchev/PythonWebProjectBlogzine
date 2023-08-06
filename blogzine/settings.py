@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django_bootstrap5',
     'blogzine.common',
     'blogzine.blog_auth',
-
+    'blogzine.comments',
     'blogzine.blog_post' ,
     'blogzine.blog_shop'
 
