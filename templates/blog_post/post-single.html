@@ -102,10 +102,10 @@ Main START -->
   {% endfor %}
 
 				 <h2>Leave a Comment</h2>
-  <form method="post">
+  <form method="post" action="{% url 'post-comments' post.id %}">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Submit Comment</button>
+      <button type="submit">Submit Comment</button>
   </form>
 			</div>
 			<!-- Main Content END -->
