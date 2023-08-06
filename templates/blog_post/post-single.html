@@ -105,6 +105,7 @@ Main START -->
   <form method="post" action="{% url 'post-comments' post.id %}">
     {% csrf_token %}
     {{ form.as_p}}
+      {{ form.name }}
       <button type="submit">Submit Comment</button>
   </form>
 			</div>
