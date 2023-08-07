@@ -258,9 +258,17 @@ Header START -->
 				<div class="nav-item ms-2 ms-md-3 dropdown">
 					<!-- Avatar -->
 					<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
-
+                        {% if user.is_authenticated %}
+                             {% if user.userprofile.profile_picture %}
                         <img class="avatar-img rounded-circle" src="{{ user.userprofile.profile_picture.url }}" alt="avatar">
-					</a>
+                        {% else %}
+                        <img class="avatar-img rounded-circle" src="{% static 'images/avatar/05.jpg' %}" alt="avatar">
+                        {% endif %}
+                    {% else %}
+                    <img class="avatar-img rounded-circle" src="{% static 'images/avatar/05.jpg' %}" alt="avatar">
+                    {% endif %}
+                    </a>
+
 
 					<!-- Profile dropdown START -->
 					<ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
