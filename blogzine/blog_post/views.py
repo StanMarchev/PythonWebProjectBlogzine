@@ -1,6 +1,7 @@
+from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
 from django.views import View
 from django.views.generic import CreateView, UpdateView
@@ -12,6 +13,8 @@ class PostDetailView(View):
     def get(self, request, pk):
         post = get_object_or_404(CreatePost, pk=pk)
         return render(request, 'blog_post/post-single.html', {'post': post})
+
+
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = CreatePost
     form_class = CreatePostForm
@@ -55,3 +58,13 @@ def post_list(request):
     print(posts)
 
     return render(request, 'blog_post/dashboard-post-list.html', context)
+
+
+
+class PostDeleteView(View):
+    def post(self, request, pk):
+        post = get_object_or_404(CreatePost, pk=pk)
+
+        post.delete()
+        messages.success(request, "Post deleted successfully.")
+        return redirect('dashboard')

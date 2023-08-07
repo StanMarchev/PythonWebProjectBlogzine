@@ -461,15 +461,15 @@ Main contain START -->
 								<!-- Table body START -->
 
 								<tbody class="border-top-0">
-								{% for post in posts %}
+								{% for post in page_obj %}
                                 <tr>
 										<td>
-											<h6 class="course-title mt-2 mt-md-0 mb-0"><a href="{% url 'post-details' post.pk %}">{{post.posts_name}}</a></h6>
+											<h6 class="course-title mt-2 mt-md-0 mb-0"><a href="{% url 'post-details' post.pk %}">{{post.post_name}}</a></h6>
 										</td>
 										<td>
 											<h6 class="mb-0"><a href="#">{{ post.author.username }}</a></h6>
 										</td>
-										<td>{{ post.pub_date }}</td>
+										<td>{{ post.uploaded_at }}</td>
 										<td>
 											<a href="#" class="badge text-bg-warning mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>{{ post.category }}</a>
 										</td>
@@ -478,9 +478,16 @@ Main contain START -->
 										</td>
 										<td>
                       <div class="d-flex gap-2">
-                        <a href="#" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="bi bi-trash"></i></a>
-                        <a href="{% url 'post-edit' pk=post.pk %}" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="bi bi-pencil-square"></i></a>
-                      </div>
+        <form method="post" action="{% url 'post-delete' pk=post.pk %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete">
+                <i class="bi bi-trash"></i>
+            </button>
+        </form>
+        <a href="{% url 'post-edit' pk=post.pk %}" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
+            <i class="bi bi-pencil-square"></i>
+        </a>
+    </div>
 										</td>
 									</tr>
 {% endfor %}

@@ -1,10 +1,11 @@
 from django.urls import path, include
 
-from blogzine.blog_post.views import PostCreateView, PostEditView, post_list, PostDetailView
+from blogzine.blog_post.views import PostCreateView, PostEditView, post_list, PostDetailView, PostDeleteView
 
 urlpatterns = [
     path('create/', PostCreateView.as_view(), name='post-create'),
     path('<int:pk>/', PostDetailView.as_view(), name='post-details'),
     path('post-list/', post_list, name='post-list'),
     path('<int:pk>/edit/', PostEditView.as_view(), name='post-edit'),
+    path('<int:pk>/delete/', PostDeleteView.as_view(), name='post-delete'),
 ]
