@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
 
-from blogzine.blog_post.models import Post, CreatePost
+from blogzine.blog_post.models import CreatePost
 
 
 from django.shortcuts import render, get_object_or_404, redirect

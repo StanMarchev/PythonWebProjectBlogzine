@@ -94,11 +94,11 @@ Main START -->
 
 
 
-
 				<!-- Comments START -->
 				 <h2>Comments</h2>
   {% for comment in comments %}
     <div>
+
       <p><strong>{{ comment.name }}</strong> on {{ comment.created_at }}</p>
       <p>{{ comment.comment }}</p>
     </div>
@@ -107,10 +107,9 @@ Main START -->
   {% endfor %}
 
 				 <h2>Leave a Comment</h2>
-  <form method="post" action="{% url 'post-comments' post.id %}">
+  <form method="post" action="{% url 'post-comments' post.pk %}">
     {% csrf_token %}
     {{ form.as_p}}
-      {{ form.name }}
       <button type="submit">Submit Comment</button>
   </form>
 			</div>

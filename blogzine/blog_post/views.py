@@ -7,12 +7,35 @@ from django.views import View
 from django.views.generic import CreateView, UpdateView
 
 from blogzine.blog_post.forms import CreatePostForm
-from blogzine.blog_post.models import CreatePost, Post
+from blogzine.blog_post.models import CreatePost
+from blogzine.comments.forms import CommentForm
+from blogzine.comments.models import Comment
+
 
 class PostDetailView(View):
     def get(self, request, pk):
         post = get_object_or_404(CreatePost, pk=pk)
-        return render(request, 'blog_post/post-single.html', {'post': post})
+        comments = Comment.objects.filter(post=post)
+        form = CommentForm()
+        return render(request, 'blog_post/post-single.html', {'post': post, 'comments': comments, 'form': form})
+
+    def post(self, request, pk):
+        post = get_object_or_404(CreatePost, pk=pk)
+        comments = Comment.objects.filter(post=post)
+
+        if request.method == 'POST':
+            form = CommentForm(request.POST)
+            if form.is_valid():
+                comment = form.save(commit=False)
+                comment.post = post
+                comment.save()
+                return redirect(reverse('post-details', kwargs={'pk': post.pk}))
+        else:
+            form = CommentForm()
+
+        return render(request, 'blog_post/post-single.html', {'post': post, 'comments': comments, 'form': form})
+
+
 
 
 class PostCreateView(LoginRequiredMixin, CreateView):

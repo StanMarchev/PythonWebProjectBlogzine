@@ -1,6 +1,6 @@
 from django.urls import path, include
 
-from blogzine.blog_post.views import PostCreateView, PostEditView, post_list, PostDetailView, PostDeleteView
+from blogzine.blog_post.views import PostCreateView, PostEditView, post_list, PostDeleteView, PostDetailView
 
 urlpatterns = [
     path('create/', PostCreateView.as_view(), name='post-create'),

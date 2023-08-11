@@ -11,7 +11,7 @@ urlpatterns = [
     path('accounts/', include('blogzine.blog_auth.urls')),
     path('posts/', include('blogzine.blog_post.urls')),
     path('shop/', include('blogzine.blog_shop.urls')),
-    path('comments/', include('blogzine.comments.urls')),
+    path('posts/', include('blogzine.comments.urls')),
 
     ]
 
