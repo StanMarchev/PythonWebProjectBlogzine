@@ -43,3 +43,6 @@ def update_cart(request):
             cart_item.save()
 
     return render(request, 'blog_shop/my-cart.html', {'cart_items': cart_items})
+
+def add_products(request):
+    pass
