@@ -84,7 +84,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'blogzine.wsgi.application'
 
 
-# Database
+# Database TEST
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
